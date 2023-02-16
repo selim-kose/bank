@@ -8,13 +8,6 @@ on:
     branches: [ main ]
 
 jobs:
-  start:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - run: echo "The job was triggered on ${{github.event_name}}"
-      - run: echo "The branch was ${{github.ref}}"
-      - run: echo "The os this was run on is ${{runner.os}}"
   build:
     runs-on: ubuntu-latest
     steps:
@@ -24,21 +17,15 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-      - name: Test with Maven
+      - name: Test
         run: mvn clean test
-      - name: Compile with Maven
+      - name: Compile
         run: mvn compile
-      - name: Build with Maven
-        run: mvn --batch-mode --update-snapshots package
-  upload:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: create folder
-        run: mkdir -p path/to/artifact
-      - name: write in txt  
-        run: echo hello > path/to/artifact/world.txt     
+      - name: Build JAR
+        run: mvn package
+      - name: Upload JAR  
       - uses: actions/upload-artifact@v3
         with:
-          name: my-artifact
-          path: path/to/artifact/world.txt
+          name: Bank-System
+          path: target/bank-system.jar
+
