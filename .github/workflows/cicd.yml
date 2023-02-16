@@ -24,7 +24,7 @@ jobs:
       - name: Build JAR
         run: mvn package
      # - name: Upload JAR
-      #- uses: actions/upload-artifact@v3
-       # with:
-        #  name: Bank-System
-         # path: target/bank-system-1.jar
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Bank-System
+          path: target/bank-system-1.jar
