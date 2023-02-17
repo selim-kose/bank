@@ -28,3 +28,4 @@ jobs:
         with:
           name: Bank-System
           path: target/bank-system-1.jar
+# test
