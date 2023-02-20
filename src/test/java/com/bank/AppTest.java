@@ -6,8 +6,6 @@ package com.bank;
  */
 public class AppTest 
 {
-    /**
-     * Rigorous Test :-)
-     */
+
 
 }
